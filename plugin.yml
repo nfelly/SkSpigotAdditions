@@ -1,0 +1,6 @@
+name: SkSpigotAdditions
+version: 1.9
+description: An addon for Skript which adds 1.8 features via Spigot
+author: Funnygatt
+main: me.Funnygatt.SkSpigotAdditons.Main
+depend: [Skript]
