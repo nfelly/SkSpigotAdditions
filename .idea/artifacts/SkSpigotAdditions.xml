@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="SkSpigotAdditions">
+    <output-path>$PROJECT_DIR$/../../My Plugins</output-path>
+    <root id="archive" name="SkSpigotAdditions.jar">
+      <element id="module-output" name="SkSpigotAdditions" />
+      <element id="file-copy" path="$PROJECT_DIR$/plugin.yml" />
+    </root>
+  </artifact>
+</component>
