@@ -41,9 +41,6 @@ public class EffActionBar extends Effect implements Listener{
 
 
 		for (Player p : playerlist) {
-			if (!(TitleManager.getVersion(p))){
-				return;
-			}
 			TitleManager.sendActionTitle(p, newactiontitle);
 		}
 

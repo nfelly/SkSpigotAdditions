@@ -4,13 +4,16 @@ import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
-import net.minecraft.server.v1_7_R4.ChatSerializer;
-import net.minecraft.server.v1_7_R4.PlayerConnection;
-import org.bukkit.craftbukkit.v1_7_R4.entity.CraftPlayer;
+import net.minecraft.server.v1_8_R1.ChatSerializer;
+import net.minecraft.server.v1_8_R1.IChatBaseComponent;
+import net.minecraft.server.v1_8_R1.PacketPlayOutPlayerListHeaderFooter;
+import net.minecraft.server.v1_8_R1.PlayerConnection;
+import org.bukkit.craftbukkit.v1_8_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.Listener;
-import org.spigotmc.ProtocolInjector;
+
+import java.lang.reflect.Field;
 
 /**
  * Created by Zachary on 10/23/2014.
@@ -41,26 +44,56 @@ public class EffTabList extends Effect implements Listener {
 		Player[] playerlist = Players.getAll(event);
 		String format = this.format.toString(event, true);
 		for (Player p : playerlist) {
-			if (Main.isPlayerRightVersion(p)){
-				//Bukkit.broadcastMessage("Footer = " + type.toString());
-				if (this.footer == false) {
-					PlayerConnection connection = ((CraftPlayer) p).getHandle().playerConnection;
-					Main.newfooter = ChatSerializer.a(format);
-					if (Main.newheader == null){
-						Main.newheader = ChatSerializer.a("Default");
-					}
-					connection.sendPacket(new ProtocolInjector.PacketTabHeader(Main.newfooter, Main.newheader));
-					//Bukkit.broadcastMessage("Footer");
+			//Bukkit.broadcastMessage("Footer = " + type.toString());
+			if (this.footer == false) {
+				Main.newfooter = ChatSerializer.a(format);
+				if (Main.newheader == null){
+					Main.newheader = ChatSerializer.a("Default");
 				}
-				if (this.footer == true) {
-					PlayerConnection connection = ((CraftPlayer) p).getHandle().playerConnection;
-					Main.newheader = ChatSerializer.a(format);
-					if (Main.newfooter == null) {
-						Main.newfooter = ChatSerializer.a("Default");
-					}
-					connection.sendPacket(new ProtocolInjector.PacketTabHeader(Main.newfooter, Main.newheader));
-					//Bukkit.broadcastMessage("Header");
+				PlayerConnection connection = ((CraftPlayer)p).getHandle().playerConnection;
+				IChatBaseComponent tabTitle = ChatSerializer.a("{\"text\": \"" + Main.newheader + "\"}");
+				IChatBaseComponent tabFoot = ChatSerializer.a("{\"text\": \"" + Main.newfooter + "\"}");
+				PacketPlayOutPlayerListHeaderFooter headerPacket = new PacketPlayOutPlayerListHeaderFooter(tabTitle);
+				try
+				{
+					Field field = headerPacket.getClass().getDeclaredField("b");
+					field.setAccessible(true);
+					field.set(headerPacket, tabFoot);
 				}
+				catch (Exception e)
+				{
+					e.printStackTrace();
+				}
+				finally
+				{
+					connection.sendPacket(headerPacket);
+				}
+				//Bukkit.broadcastMessage("Footer");
+			}
+			if (this.footer == true) {
+				Main.newheader = ChatSerializer.a(format);
+				if (Main.newfooter == null) {
+					Main.newfooter = ChatSerializer.a("Default");
+				}
+				PlayerConnection connection = ((CraftPlayer)p).getHandle().playerConnection;
+				IChatBaseComponent tabTitle = ChatSerializer.a("{\"text\": \"" + Main.newheader + "\"}");
+				IChatBaseComponent tabFoot = ChatSerializer.a("{\"text\": \"" + Main.newfooter + "\"}");
+				PacketPlayOutPlayerListHeaderFooter headerPacket = new PacketPlayOutPlayerListHeaderFooter(tabTitle);
+				try
+				{
+					Field field = headerPacket.getClass().getDeclaredField("b");
+					field.setAccessible(true);
+					field.set(headerPacket, tabFoot);
+				}
+				catch (Exception e)
+				{
+					e.printStackTrace();
+				}
+				finally
+				{
+					connection.sendPacket(headerPacket);
+				}
+				//Bukkit.broadcastMessage("Header");
 			}
 		}
 	}

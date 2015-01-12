@@ -4,7 +4,7 @@
 	<contentEntry url="file://$MODULE_DIR$">
 		<excludeFolder url="file://$MODULE_DIR$/target"/>
 	</contentEntry>
-	<lib name="SpigotPatched.jar" scope="COMPILE">
-		<srcroot url="jar://$USER_HOME$/Desktop/SpigotPatched.jar!/"/>
+	<lib name="D:\spigot19.jar" scope="COMPILE">
+		<srcroot url="jar://D:/spigot19.jar!/"/>
 	</lib>
 </component>

@@ -12,7 +12,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="var" path="USER_HOME/Desktop/SpigotPatched.jar" sourcepath="/USER_HOME/Desktop/SpigotPatched.jar"/>
-	<classpathentry kind="var" path="USER_HOME/Downloads/ProtocolLib-Spigot-3.6.0-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="D:/spigot19.jar" sourcepath="D:/spigot19.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

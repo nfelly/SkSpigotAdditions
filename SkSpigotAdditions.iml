@@ -19,23 +19,14 @@
     </orderEntry>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="module-library">
-      <library name="SpigotPatched.jar">
+      <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Desktop/SpigotPatched.jar!/" />
+          <root url="jar://D:/spigot19.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/Desktop/SpigotPatched.jar!/" />
+          <root url="jar://D:/spigot19.jar!/" />
         </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="ProtocolLib-Spigot-3.6.0-SNAPSHOT.jar">
-        <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/ProtocolLib-Spigot-3.6.0-SNAPSHOT.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
       </library>
     </orderEntry>
   </component>

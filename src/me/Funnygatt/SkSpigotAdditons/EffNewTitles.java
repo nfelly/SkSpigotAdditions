@@ -4,12 +4,14 @@ import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
-import me.Funnygatt.SkSpigotAdditons.TitleManager.Reflection;
 import me.Funnygatt.SkSpigotAdditons.TitleManager.TitleManager;
+import net.minecraft.server.v1_8_R1.EnumTitleAction;
+import net.minecraft.server.v1_8_R1.PacketPlayOutTitle;
+import net.minecraft.server.v1_8_R1.PlayerConnection;
+import org.bukkit.craftbukkit.v1_8_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.Listener;
-import org.spigotmc.ProtocolInjector;
 
 
 /**
@@ -64,14 +66,10 @@ public class EffNewTitles extends Effect implements Listener{
 
 
 		for (Player p : playerlist) {
-			if (!(TitleManager.getVersion(p))){
-				return;
-			}
 			try {
-				final Object handle = Reflection.getHandle(p);
-				final Object connection = Reflection.getField(handle.getClass(), "playerConnection").get(handle);
-				Object packet = ProtocolInjector.PacketTitle.class.getConstructor(ProtocolInjector.PacketTitle.Action.class, int.class, int.class, int.class).newInstance(ProtocolInjector.PacketTitle.Action.TIMES, fadein.intValue(), stay.intValue(), fadeout.intValue());
-				Reflection.getMethod(connection.getClass(), "sendPacket").invoke(connection, packet);
+				PlayerConnection connection = ((CraftPlayer)p).getHandle().playerConnection;
+				PacketPlayOutTitle packetPlayOutTimes = new PacketPlayOutTitle(EnumTitleAction.TIMES, null, fadein.intValue(), stay.intValue(), fadeout.intValue());
+				connection.sendPacket(packetPlayOutTimes);
 			} catch (final Exception e) {
 				e.printStackTrace();
 			}
