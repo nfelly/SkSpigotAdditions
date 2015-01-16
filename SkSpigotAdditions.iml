@@ -19,7 +19,7 @@
     </orderEntry>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="module-library">
-      <library>
+      <library name="spigot19.jar">
         <CLASSES>
           <root url="jar://D:/spigot19.jar!/" />
         </CLASSES>

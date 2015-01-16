@@ -2,7 +2,6 @@ package me.Funnygatt.SkSpigotAdditons;
 
 import ch.njol.skript.Skript;
 import ch.njol.skript.lang.ExpressionType;
-import me.Funnygatt.SkSpigotAdditons.Utils.HeaderFootermanager;
 import net.minecraft.server.v1_8_R1.IChatBaseComponent;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
@@ -25,8 +24,6 @@ public class Main extends JavaPlugin implements Listener{
 		pm.registerEvents(this, this);
 
 		plugin = this;
-
-		pm.registerEvents(new HeaderFootermanager(), this);
 
 		Logger.info("Now loading SkSpigotAdditions");
 
