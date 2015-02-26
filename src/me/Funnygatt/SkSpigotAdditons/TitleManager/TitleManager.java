@@ -40,7 +40,7 @@ public class TitleManager implements Listener {
 			PlayerConnection connection = ((CraftPlayer)p).getHandle().playerConnection;
 			subtitle = ChatColor.translateAlternateColorCodes('&', subtitle);
 			IChatBaseComponent titleSub = ChatSerializer.a("{\"text\": \"" + subtitle + "\"}");
-			PacketPlayOutTitle packetPlayOutSubTitle = new PacketPlayOutTitle(EnumTitleAction.TITLE, titleSub);
+			PacketPlayOutTitle packetPlayOutSubTitle = new PacketPlayOutTitle(EnumTitleAction.SUBTITLE, titleSub);
 			connection.sendPacket(packetPlayOutSubTitle);
 		} catch (final Exception e) {
 			e.printStackTrace();

@@ -51,8 +51,8 @@ public class EffTabList extends Effect implements Listener {
 					Main.newheader = ChatSerializer.a("Default");
 				}
 				PlayerConnection connection = ((CraftPlayer)p).getHandle().playerConnection;
-				IChatBaseComponent tabTitle = ChatSerializer.a("{\"text\": \"" + Main.newheader + "\"}");
-				IChatBaseComponent tabFoot = ChatSerializer.a("{\"text\": \"" + Main.newfooter + "\"}");
+				IChatBaseComponent tabTitle = ChatSerializer.a(Main.newheader.toString());
+				IChatBaseComponent tabFoot = ChatSerializer.a(Main.newfooter.toString());
 				PacketPlayOutPlayerListHeaderFooter headerPacket = new PacketPlayOutPlayerListHeaderFooter(tabTitle);
 				try
 				{
@@ -76,8 +76,8 @@ public class EffTabList extends Effect implements Listener {
 					Main.newfooter = ChatSerializer.a("Default");
 				}
 				PlayerConnection connection = ((CraftPlayer)p).getHandle().playerConnection;
-				IChatBaseComponent tabTitle = ChatSerializer.a("{\"text\": \"" + Main.newheader + "\"}");
-				IChatBaseComponent tabFoot = ChatSerializer.a("{\"text\": \"" + Main.newfooter + "\"}");
+				IChatBaseComponent tabTitle = ChatSerializer.a(Main.newheader.toString());
+				IChatBaseComponent tabFoot = ChatSerializer.a(Main.newfooter.toString());
 				PacketPlayOutPlayerListHeaderFooter headerPacket = new PacketPlayOutPlayerListHeaderFooter(tabTitle);
 				try
 				{
