@@ -6,12 +6,12 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Zachary/Documents/Plugins for Servers/Skript.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/spigot19.jar" sourcepath="D:/spigot19.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Nicholas/Documents/Eclipse/Build with/TokenEnchant/spigot-1.8.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Nicholas/Documents/Minecraft/Servers/Skript - Copy/plugins/Skript.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

@@ -2,7 +2,6 @@ package me.Funnygatt.SkSpigotAdditons;
 
 import ch.njol.skript.Skript;
 import ch.njol.skript.lang.ExpressionType;
-import net.minecraft.server.v1_8_R1.IChatBaseComponent;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
@@ -13,8 +12,8 @@ import org.bukkit.plugin.java.JavaPlugin;
  * Created by Zachary on 10/23/2014.
  */
 public class Main extends JavaPlugin implements Listener{
-	public static IChatBaseComponent newfooter = null;
-	public static IChatBaseComponent newheader = null;
+	public static net.minecraft.server.v1_8_R2.IChatBaseComponent newfooter = null;
+	public static net.minecraft.server.v1_8_R2.IChatBaseComponent newheader = null;
 
 	public static Plugin plugin;
 

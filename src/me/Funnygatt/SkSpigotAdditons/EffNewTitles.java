@@ -5,10 +5,10 @@ import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
 import me.Funnygatt.SkSpigotAdditons.TitleManager.TitleManager;
-import net.minecraft.server.v1_8_R1.EnumTitleAction;
-import net.minecraft.server.v1_8_R1.PacketPlayOutTitle;
-import net.minecraft.server.v1_8_R1.PlayerConnection;
-import org.bukkit.craftbukkit.v1_8_R1.entity.CraftPlayer;
+import net.minecraft.server.v1_8_R2.PacketPlayOutTitle;
+import net.minecraft.server.v1_8_R2.PacketPlayOutTitle.EnumTitleAction;
+import net.minecraft.server.v1_8_R2.PlayerConnection;
+import org.bukkit.craftbukkit.v1_8_R2.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.Listener;
@@ -17,7 +17,7 @@ import org.bukkit.event.Listener;
 /**
  * Created by Zachary on 10/25/2014.
  */
-public class EffNewTitles extends Effect implements Listener{
+public abstract class EffNewTitles extends Effect implements Listener{
 
 	private Expression<String> Title;
 	private Expression<String> Subtitle;
@@ -47,8 +47,6 @@ public class EffNewTitles extends Effect implements Listener{
 	public String toString(@javax.annotation.Nullable Event arg0, boolean arg1) {
 		return "titles";
 	}
-
-	@Override
 
 	protected void execute(Event event) {
 		String newtitle = this.Title.getSingle(event);

@@ -5,20 +5,18 @@ import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.util.Kleenean;
 import me.Funnygatt.SkSpigotAdditons.TitleManager.TitleManager;
+
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.Listener;
 
-
 /**
- * Created by Zachary on 10/25/2014.
+ * Created by Zachary on 10/23/2014.
  */
-public class EffActionBar extends Effect implements Listener{
-
+public class EffActionBar extends Effect implements Listener {
 
 	private Expression<String> Actiontitle;
 	private Expression<Player> Players;
-
 
 
 	@SuppressWarnings("unchecked")
@@ -30,7 +28,7 @@ public class EffActionBar extends Effect implements Listener{
 	}
 
 	public String toString(@javax.annotation.Nullable Event arg0, boolean arg1) {
-		return "titles";
+		return "tablist header 1.8";
 	}
 
 	@Override
@@ -43,6 +41,6 @@ public class EffActionBar extends Effect implements Listener{
 		for (Player p : playerlist) {
 			TitleManager.sendActionTitle(p, newactiontitle);
 		}
-
 	}
 }
+
